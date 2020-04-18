@@ -1,8 +1,3 @@
-const Discord = require("discord.js");
-const utils = require("./data/utils.js");
-require("dotenv").config();
-
-let client = new Discord.Client();
-
-utils.login(client);
-utils.loadEvents(client);
+const getClient = require("./lib/getClient");
+// Starting the client from this file is not recommended. Prefer using the console command.
+getClient();

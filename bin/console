@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+const yargs = require("yargs").argv;
+const commands = require("../data/commands");
+require("colors");
+require("dotenv").config();
+const mongoConnect = require("../lib/mongoConnect");
+
+let commandName = yargs["_"].shift();
+let command = commands[commandName];
+
+if (command) {
+  mongoConnect(true);
+  yargs.commandName = commandName;
+  yargs.args = yargs["_"];
+  delete yargs["_"];
+  command(yargs)
+} else {
+  return console.error(`${commandName} is not decalared as a command.`.red)
+}
