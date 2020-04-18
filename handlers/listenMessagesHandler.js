@@ -14,12 +14,24 @@ module.exports.dmListener = (client, args) => {
   })
 };
 
-function formatGuildMessages(message) {
+module.exports.channelListener = (client, args) => {
+  const channelID = args.args[0];
+  const channel = client.channels.get(channelID);
+  const guildName = channel.guild.name;
+  console.log(`==== LISTENING FOR ALL MESSAGES ON CHANNEL NAME: ${channel.name} on ${guildName} ====`);
+  client.on("message", message => {
+    if (message.channel.id === args.args[0])
+      formatChannelMessages(message)
+        .then(console.log)
+  })
+};
+
+function formatChannelMessages(message) {
   return new Promise(resolve => {
-    resolve(message.content)
+    const authorTag = message.author.tag;
+    resolve(`${authorTag}: ${message.content}`)
   })
 }
-
 
 function formatDmMessages(message) {
   return new Promise(resolve => {

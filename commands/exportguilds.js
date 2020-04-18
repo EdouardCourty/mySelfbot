@@ -1,6 +1,6 @@
 const exportGuildsHandler = require("../handlers/exportGuildsHandler");
 
-exports.run = (client, message, args) => {
+exports.run = (client) => {
   exportGuildsHandler(client)
 };
 

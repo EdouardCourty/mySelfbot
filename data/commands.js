@@ -3,8 +3,10 @@ const listGuildsHandler = require("../handlers/listGuildsHandler");
 const listFriendsHandler = require("../handlers/listFriendsHandler");
 const exportGuildsHandler = require("../handlers/exportGuildsHandler");
 const exportFriendsHandler = require("../handlers/exportFriendsHandler");
+const importFriendsHandler = require("../handlers/importFriendsHandler");
 const listenGuildMessagesHandler = require("../handlers/listenMessagesHandler").guildListener;
 const listenDmMessagesHandler = require("../handlers/listenMessagesHandler").dmListener;
+const listenChannelHandler = require("../handlers/listenMessagesHandler").channelListener;
 const runClient = require("../lib/getClient");
 
 /**
@@ -47,11 +49,19 @@ module.exports = {
     handleCommandWithClient(args, exportFriendsHandler, false)
   },
   /** @param {Array<String>} args */
+  importFriends: (args) => {
+    handleCommandWithClient(args, importFriendsHandler, true)
+  },
+  /** @param {Array<String>} args */
   listenToGuildMessages: (args) => {
     handleCommandWithClient(args, listenGuildMessagesHandler, true)
   },
   /** @param {Array<String>} args */
   listenToDmMessages: (args) => {
     handleCommandWithClient(args, listenDmMessagesHandler, true)
+  },
+  /** @param {Array<String>} args */
+  listenToChannel: (args) => {
+    handleCommandWithClient(args, listenChannelHandler, true)
   }
 };

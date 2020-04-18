@@ -2,8 +2,7 @@ start:
 	node app.js
 
 setup:
-	touch .env
-	echo 'APPLICATION_TOKEN = ""\n\nCOMMAND_PREFIX = "!"\n\nAPPLICATION_LOGLEVEL = "all"' >> .env
+	cp .env.dist .env
 	npm install
 
 test:

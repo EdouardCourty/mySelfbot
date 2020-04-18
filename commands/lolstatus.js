@@ -1,7 +1,7 @@
 const request = require("request-promise");
 const { getDate } = require("../data/utils");
 
-module.exports.run = async (client, message, args) => {
+module.exports.run = async (client, message) => {
   const data = await getStatus();
   const n = data.incidents.length,
       incidents = data.incidents,
