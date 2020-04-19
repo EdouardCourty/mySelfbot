@@ -2,11 +2,19 @@ class CannotAddFriendException extends Error
 {
   _errorMessage = "Unable to add this user as a friend.";
 
-  constructor(customMessage = null) {
-    super();
-    this._errorMessage.concat(customMessage ? `\n${customMessage}` : null)
+  /**
+   * @param {String|null} customMessage
+   */
+  constructor(customMessage) {
+    super(customMessage);
+    if (customMessage) {
+      this._errorMessage += `\n${customMessage}`
+    }
   }
 
+  /**
+   * @return {string}
+   */
   getMessage() {
     return this._errorMessage
   }

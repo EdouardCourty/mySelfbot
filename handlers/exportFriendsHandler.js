@@ -1,7 +1,7 @@
 const fs = require("fs");
 const {createFolderIfNotExists} = require("../data/utils");
 
-module.exports = (client, args) => {
+module.exports = (client) => {
   const friendsExportData = client.user.friends.map(friend => {
     return {
       tag: friend.tag,

@@ -1,7 +1,7 @@
 const fs = require("fs");
 const {createFolderIfNotExists} = require("../data/utils");
 
-module.exports = (client, args) => {
+module.exports = (client) => {
   const guildExportData = client.guilds.map(guild => {
     return {
       name: guild.name,

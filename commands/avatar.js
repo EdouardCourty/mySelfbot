@@ -19,4 +19,3 @@ exports.info = {
   name       : "avatar",
   description: "Gets the avatar URL for a profile. UserMention (@user) needed as first argument."
 };
-s
