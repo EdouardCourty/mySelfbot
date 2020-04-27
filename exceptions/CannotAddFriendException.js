@@ -1,22 +1,9 @@
-class CannotAddFriendException extends Error
+const Exception = require("./Exception");
+
+class CannotAddFriendException extends Exception
 {
-  _errorMessage = "Unable to add this user as a friend.";
-
-  /**
-   * @param {String|null} customMessage
-   */
-  constructor(customMessage) {
-    super(customMessage);
-    if (customMessage) {
-      this._errorMessage += `\n${customMessage}`
-    }
-  }
-
-  /**
-   * @return {string}
-   */
-  getMessage() {
-    return this._errorMessage
+  constructor() {
+    super("Unable to add this user as a friend.");
   }
 }
 

@@ -31,7 +31,7 @@ module.exports = (client) => {
         }
       })
       .catch(e => {
-        console.error(e)
+        console.error(e.getMessage())
       })
   });
 };
